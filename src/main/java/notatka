@@ -1,0 +1,17 @@
+csrf - autporyzacja, i atak przez uzycie ciastek na stornie web
+
+
+0uruchmoinieni testow
+1.uruchmonie aplikacji
+otwarcie strrony na localhost
+kazdy formularz musi miec token csrf
+zrodlo kodu storny musi miec wartosc tokane acsrf
+
+Dziala dobrze jak wymaga loginu i hasla, loguje
+w nastepnym kroku wysweitla sie formularz do dodania pozycji do tabelki
+http://localhost:8080/app/suggestions
+
+
+
+
+aby nie wymagalo autoryzacji, trzeba antMachers , zmienic zabezpieczenia

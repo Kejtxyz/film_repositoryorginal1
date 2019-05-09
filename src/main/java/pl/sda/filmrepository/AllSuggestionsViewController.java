@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.security.Principal;
+
 @Controller
 @RequestMapping("/app/suggestions")
 public class AllSuggestionsViewController {
@@ -16,8 +18,9 @@ public class AllSuggestionsViewController {
     }
 
     @GetMapping
-    String allSuggestions(Model model){
+    String allSuggestions(Model model , Principal principal){
         model.addAttribute("allSuggestions",repository.findAll());
+        model.addAttribute("author", principal.getName());
         return "suggestions";
     }
 

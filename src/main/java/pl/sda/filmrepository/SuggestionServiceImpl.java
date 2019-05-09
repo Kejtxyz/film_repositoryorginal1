@@ -24,6 +24,19 @@ public class SuggestionServiceImpl implements SuggestionService {
         return suggestioRepository.save(suggestion);
     }
 
+    private void notifyAllSubscribers(Suggestion suggestion)
+    {
+        Iterable<Subskrypcja>all = subskrypcjaRepo.findAll();
+        for (Subskrypcja sub:all){
+            sendMail(sub.getMail(), suggestion);
+        }
+    }
+
+
+
+
+
+
     @Override
     public Iterable<Suggestion> findSuggestionByAuthor(String author) {
         return suggestioRepository.findByAuthor(author);
